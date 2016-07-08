@@ -16,6 +16,7 @@ public class GreatestSequence {
         if (input.size() == 1) {
             return input;
         }
+        int counter = 0;
         int maxSumCurrent = input.get(0);
         int maxSumInNextVariant = input.get(0);
         int firstIndexCurrentMaxSum = 0;
@@ -26,13 +27,18 @@ public class GreatestSequence {
         while (firstIndexNextVariantMaxSum <= input.size()) {
 
             if (firstIndexNextVariantMaxSum != input.size()) {
-                for (int i = firstIndexNextVariantMaxSum; i < input.size(); i++) {
-                    if (maxSumInNextVariant + input.get(i) >= maxSumInNextVariant) {
-                        maxSumInNextVariant += input.get(i);
-                        lastIndexNextVariantMaxSum = i;
-                    } else {
-                        break;
+                for (int i = counter; i < input.size(); i++) {
+                    for (int j = counter + 1; j <= i; j++) {
+                        maxSumInNextVariant += input.get(j);
+                        lastIndexNextVariantMaxSum = j;
                     }
+                    if (maxSumInNextVariant > maxSumCurrent) {
+                        maxSumCurrent = maxSumInNextVariant;
+                        firstIndexCurrentMaxSum = firstIndexNextVariantMaxSum - 1;
+                        lastIndexCurrentMaxSum = lastIndexNextVariantMaxSum;
+                    }
+                    maxSumInNextVariant = input.get(firstIndexNextVariantMaxSum - 1);
+
                 }
             } else {
                 maxSumInNextVariant = input.get(firstIndexNextVariantMaxSum - 1);
@@ -44,13 +50,7 @@ public class GreatestSequence {
                 break;
             }
 
-            if (maxSumInNextVariant > maxSumCurrent) {
-                maxSumCurrent = maxSumInNextVariant;
-                firstIndexCurrentMaxSum = firstIndexNextVariantMaxSum - 1;
-                lastIndexCurrentMaxSum = lastIndexNextVariantMaxSum;
-            }
-
-
+            counter++;
             firstIndexNextVariantMaxSum++;
 
             lastIndexNextVariantMaxSum = firstIndexNextVariantMaxSum;
