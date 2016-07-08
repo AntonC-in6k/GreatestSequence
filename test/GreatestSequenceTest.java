@@ -15,5 +15,8 @@ public class GreatestSequenceTest {
         assertThat(GreatestSequence.findSequence(null), is(new ArrayList<Integer>()));
     }
 
-
+    @Test
+    public void emptyLitTest() throws Exception {
+        assertThat(GreatestSequence.findSequence(new ArrayList<Integer>()), is(new ArrayList<Integer>()));
+    }
 }

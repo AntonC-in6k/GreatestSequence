@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class GreatestSequence {
 
     public static ArrayList<Integer> findSequence(ArrayList<Integer> input) {
-        if (input==null){return new ArrayList<Integer>();}
+        if (input==null||input.size()==0){return new ArrayList<Integer>();}
     return null;
     }
 }
