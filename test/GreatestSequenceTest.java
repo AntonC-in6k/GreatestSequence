@@ -34,4 +34,11 @@ public class GreatestSequenceTest {
         ArrayList<Integer> expectedSequence = new ArrayList<>(Arrays.asList(new Integer[]{2,5}));
         assertThat(GreatestSequence.findSequence(testSequence),is(expectedSequence));
     }
+
+    @Test
+    public void treeDigitsInSequenceTest() throws Exception{
+        ArrayList<Integer> testSequence = new ArrayList<>(Arrays.asList(new Integer[]{-1,1,8}));
+        ArrayList<Integer> expectedSequence = new ArrayList<>(Arrays.asList(new Integer[]{1,8}));
+        assertThat(GreatestSequence.findSequence(testSequence),is(expectedSequence));
+    }
 }
