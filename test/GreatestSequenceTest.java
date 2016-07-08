@@ -50,10 +50,4 @@ public class GreatestSequenceTest {
         assertThat(GreatestSequence.findSequence(testSequence), is(expectedSequence));
     }
 
-    @Test
-    public void timeTest() throws Exception {
-        ArrayList<Integer> testSequence = new ArrayList<>(Arrays.asList(new Integer[]{-1, 1, 8, 2, -2, -3, 0, 1, 2, 0}));
-        ArrayList<Integer> expectedSequence = new ArrayList<>(Arrays.asList(new Integer[]{1, 8, 2}));
-        assertThat(GreatestSequence.findSequence(testSequence), is(expectedSequence));
-    }
 }
