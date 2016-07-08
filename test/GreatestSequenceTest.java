@@ -18,13 +18,20 @@ public class GreatestSequenceTest {
 
     @Test
     public void emptySequenceTest() throws Exception {
-        assertThat(GreatestSequence.findSequence(new ArrayList<Integer>()), is(new ArrayList<Integer>()));
+        assertThat(GreatestSequence.findSequence(new ArrayList<>()), is(new ArrayList<Integer>()));
     }
 
     @Test
     public void oneDigitInSequenceTest() throws Exception{
-        ArrayList<Integer> testSequence = new ArrayList<Integer>(Arrays.asList(new Integer[]{1}));
-        ArrayList<Integer> expectedSequence = new ArrayList<Integer>(Arrays.asList(new Integer[]{1}));
+        ArrayList<Integer> testSequence = new ArrayList<>(Arrays.asList(new Integer[]{1}));
+        ArrayList<Integer> expectedSequence = new ArrayList<>(Arrays.asList(new Integer[]{1}));
+        assertThat(GreatestSequence.findSequence(testSequence),is(expectedSequence));
+    }
+
+    @Test
+    public void twoDigitsInSequenceTest() throws Exception{
+        ArrayList<Integer> testSequence = new ArrayList<>(Arrays.asList(new Integer[]{2,5}));
+        ArrayList<Integer> expectedSequence = new ArrayList<>(Arrays.asList(new Integer[]{2,5}));
         assertThat(GreatestSequence.findSequence(testSequence),is(expectedSequence));
     }
 }
